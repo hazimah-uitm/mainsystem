@@ -1,13 +1,17 @@
-import { defineConfig } from 'vite';
-import laravel from 'laravel-vite-plugin';
-import tailwindcss from '@tailwindcss/vite';
+import { defineConfig, loadEnv } from 'vite'
+import laravel from 'laravel-vite-plugin'
+import tailwindcss from '@tailwindcss/vite'
 
-export default defineConfig({
+export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, process.cwd(), '')
+  return {
+    base: env.VITE_BASE || '/', // contoh: /mainsystem/
     plugins: [
-        laravel({
-            input: ['resources/css/app.css', 'resources/js/app.js'],
-            refresh: true,
-        }),
-        tailwindcss(),
+      laravel({
+        input: ['resources/css/app.css', 'resources/js/app.js'],
+        refresh: true,
+      }),
+      tailwindcss(),
     ],
-});
+  }
+})

@@ -17,7 +17,7 @@ A basic template which have been installed with:
 The system is built with:
 - Laravel 12
 - PHP 8.2.12
-- Node 18.20.5
+- Node 20.18.1
 - Bootstrap 5.2.0
 - Composer 2.8.9
 
